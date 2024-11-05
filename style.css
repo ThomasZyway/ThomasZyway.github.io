@@ -7,19 +7,14 @@ header {
     overflow: hidden;
   }
   
-  header video {
+  header .video-background {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 0;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
   }
   
   header .container {
@@ -38,16 +33,17 @@ header {
     z-index: 1;
   }
   
-  /* Media Query for devices withi coarse pointers and no hover functionality */
-  
-  /* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
-  
+  /* Media Query for devices with coarse pointers and no hover functionality */
   @media (pointer: coarse) and (hover: none) {
     header {
-      background: url('https://youtu.be/o1gRV9zjAYQ?si=tpT-M1aojHi-NtdB') black no-repeat center center scroll;
+      /* Utilisez une image de remplacement ici */
+      background: url('fallback-image.jpg') black no-repeat center center;
+      background-size: cover;
     }
   
-    header video {
+    /* Masque l'iframe pour les appareils mobiles ou tactiles */
+    header .video-background {
       display: none;
     }
   }
+  
