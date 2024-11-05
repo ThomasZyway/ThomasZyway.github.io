@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Chez Thomas</title>
     <link rel="stylesheet" href="./style.css">
-  </head>
-
-  <body>
+</head>
+<body>
     
     <header>
         <div class="container">
@@ -33,7 +32,8 @@
     
     <script>
         const toggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu');
+        const menu = document.querySelector('.menu ul');
+
         toggle.addEventListener('click', () => {
             menu.classList.toggle('active');
         });
@@ -47,6 +47,5 @@
             });
         });
     </script>
-    
-  </body>
+</body>
 </html>

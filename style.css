@@ -55,7 +55,6 @@ header {
     border-bottom: 2px solid #a23ef3;
 }
 
-
 .menu-toggle {
     display: none;
     font-size: 24px;
@@ -65,20 +64,26 @@ header {
 
 @media (max-width: 768px) {
     .menu ul {
-        display: none;
+        display: none; 
         flex-direction: column;
         width: 100%;
+        background-color: #1d1d1d;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 0;
     }
 
     .menu ul.active {
         display: flex;
     }
 
-    .menu-toggle {
-        display: block;
+    .menu ul li {
+        margin: 15px 0;
+        text-align: center;
     }
 
-    .menu ul li {
-        margin: 10px 0;
+    .menu-toggle {
+        display: block;
     }
 }
