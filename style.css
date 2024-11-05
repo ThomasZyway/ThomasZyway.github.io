@@ -11,9 +11,10 @@ body {
 }
 
 header {
-    background-color: #2b2b2b;
+    background-color: #1d1d1d;
     color: #fff;
     padding: 15px 0;
+    border-bottom: 2px solid #585858;
 }
 
 .container {
@@ -44,11 +45,14 @@ header {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
-    transition: color 0.3s;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding-bottom: 5px;
 }
 
-.menu ul li a:hover {
+.menu ul li a:hover,
+.menu ul li a.active {
     color: #f39c12;
+    border-bottom: 2px solid #f39c12;
 }
 
 

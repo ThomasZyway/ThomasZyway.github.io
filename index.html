@@ -30,11 +30,21 @@
     <main>
         <h1>Bonjour Thomas, je fonctionne parfaitement!</h1>  
     </main>
+    
     <script>
         const toggle = document.querySelector('.menu-toggle');
         const menu = document.querySelector('.menu');
         toggle.addEventListener('click', () => {
             menu.classList.toggle('active');
+        });
+
+        const menuLinks = document.querySelectorAll('.menu ul li a');
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
         });
     </script>
     
