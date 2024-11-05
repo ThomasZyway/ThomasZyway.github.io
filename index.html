@@ -7,8 +7,36 @@
   </head>
 
   <body>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#">Thomas</a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                ☰
+            </div>
+        </div>
+    </header>
+
     <main>
         <h1>Bonjour Thomas, je fonctionne parfaitement!</h1>  
     </main>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+    
   </body>
 </html>
