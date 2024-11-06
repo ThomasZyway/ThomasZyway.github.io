@@ -7,76 +7,75 @@
 </head>
 <body>
     
+    <!-- Menu Latéral -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="#home" class="menu-item">Accueil</a></li>
+            <li><a href="#about" class="menu-item">À propos de moi</a></li>
+            <li><a href="#projets" class="menu-item">Mes projets</a></li>
+            <li><a href="#futur" class="menu-item">Dans le futur</a></li>
+        </ul>
+    </aside>
+
+    <!-- En-tête -->
     <header>
         <div class="container">
             <div class="logo">
                 <a href="#">Thomas Lainé</a>
             </div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#about">À propos de moi</a></li>
-                    <li><a href="#projets">Mes projets</a></li>
-                    <li><a href="#futur">Dans le futur</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle">
-                ☰
-            </div>
+            <div class="menu-toggle">☰</div>
         </div>
     </header>
 
+    <!-- Contenu Principal -->
     <main>
-        <br> 
-        <h1>Bonjour Thomas, je fonctionne parfaitement!</h1>  
-        <br>
-        <img src="images/giga1.png" />
-        <br><br>
-        <p>Je suis un paragraphe de test</p>
-        <br><br>
         <div id="home" class="section">
+            <h1>Bonjour Thomas, je fonctionne parfaitement!</h1>  
+            <img src="images/giga1.png" alt="Image de test" />
+            <p>Je suis un paragraphe de test</p>
             <h2>Accueil</h2>
-            <br>
-            <p>Bienvenue sur ma page personnelle. Ici, vous pouvez découvrir mes projets et en savoir plus sur moi.</p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p>Bienvenue sur ma page personnelle. Ici, vous pouvez découvrir mes projets et en savoir plus sur moi.</p>
         </div>
 
         <div id="about" class="section">
             <h2>À propos de moi</h2>
-            <br>
-            <p>Je suis un développeur passionné par la technologie et l'innovation. J'aime créer des solutions qui aident les gens dans leur vie quotidienne.</p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p>Je suis un développeur passionné par la technologie et l'innovation. J'aime créer des solutions qui aident les gens dans leur vie quotidienne.</p>
         </div>
 
         <div id="projets" class="section">
             <h2>Mes projets</h2>
-            <br>
             <p>Voici quelques-uns de mes projets récents :</p>
             <ul>
                 <li>Projet A: Description du projet A.</li>
                 <li>Projet B: Description du projet B.</li>
                 <li>Projet C: Description du projet C.</li>
-            </ul><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </ul>
         </div>
 
         <div id="futur" class="section">
             <h2>Dans le futur</h2>
-            <p>Dans les mois à venir, je prévois de travailler sur de nouveaux projets passionnants et d'explorer des technologies émergentes.</p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p>Dans les mois à venir, je prévois de travailler sur de nouveaux projets passionnants et d'explorer des technologies émergentes.</p>
         </div>
     </main>
-    
+
     <script>
-        const toggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu ul');
+        // Script pour mettre à jour l'élément actif du menu en fonction de la section visible
+        const menuItems = document.querySelectorAll('.menu-item');
 
-        toggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
+        window.addEventListener('scroll', () => {
+            const fromTop = window.scrollY;
 
-        const menuLinks = document.querySelectorAll('.menu ul li a');
+            menuItems.forEach(link => {
+                const section = document.querySelector(link.getAttribute('href'));
 
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
+                if (
+                    section.offsetTop <= fromTop &&
+                    section.offsetTop + section.offsetHeight > fromTop
+                ) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             });
         });
     </script>

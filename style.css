@@ -8,6 +8,7 @@ body {
     font-family: Arial, sans-serif;
     color: #fff;
     background-color: #333;
+    display: flex;
 }
 
 header {
@@ -15,6 +16,52 @@ header {
     color: #fff;
     padding: 15px 0;
     border-bottom: 2px solid #585858;
+    position: fixed;
+    width: calc(100% - 200px);
+    top: 0;
+    left: 200px;
+    z-index: 1000;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #1d1d1d;
+    position: fixed;
+    height: 100vh;
+    padding-top: 20px;
+    border-right: 2px solid #585858;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 20px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #2a2a2a; /* Fond légèrement plus clair */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #3a3a3a;
+    color: #a23ef3;
+}
+
+/* État actif pour le menu */
+.sidebar ul li a.active {
+    background-color: #3a3a3a; /* Fond plus clair pour la section active */
+    color: #a23ef3; /* Couleur d'accentuation pour l'élément actif */
 }
 
 .container {
@@ -28,31 +75,8 @@ header {
 
 .logo a {
     font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.menu ul {
-    display: flex;
-    list-style: none;
-}
-
-.menu ul li {
-    margin-left: 20px;
-}
-
-.menu ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s, border-bottom 0.3s;
-    padding-bottom: 5px;
-}
-
-.menu ul li a:hover,
-.menu ul li a.active {
     color: #a23ef3;
-    border-bottom: 2px solid #a23ef3;
+    text-decoration: none;
 }
 
 .menu-toggle {
@@ -62,28 +86,31 @@ header {
     cursor: pointer;
 }
 
+main {
+    margin-left: 200px;
+    padding-top: 80px;
+    padding-left: 20px;
+    width: calc(100% - 200px);
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
 @media (max-width: 768px) {
-    .menu ul {
-        display: none; 
-        flex-direction: column;
-        width: 100%;
-        background-color: #1d1d1d;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 0;
+    .sidebar {
+        width: 60px;
     }
-
-    .menu ul.active {
-        display: flex;
-    }
-
-    .menu ul li {
-        margin: 15px 0;
-        text-align: center;
+    .sidebar ul li a {
+        font-size: 14px;
+        padding: 10px;
     }
 
     .menu-toggle {
         display: block;
+    }
+
+    main {
+        margin-left: 60px;
     }
 }
